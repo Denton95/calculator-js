@@ -1,11 +1,15 @@
-let number1 = 0;
+let number1 = '';
 let operator = '';
-let number2 = 0;
+let number2 = '';
+let answer = 0;
 
 const numButtons = document.querySelectorAll(".numberButton");
 const operatorButtons = document.querySelectorAll(".operatorButton");
 const equals = document.querySelector("#equals");
 const clear = document.querySelector("#clear");
+const displayAnswer = document.querySelector("#answer");
+const displayCalculation = document.querySelector("#calculation");
+
 
 numButtons.forEach(numButton => {
     numButton.addEventListener("click", () => {
@@ -16,7 +20,6 @@ numButtons.forEach(numButton => {
 operatorButtons.forEach(operatorButton => {
     operatorButton.addEventListener("click", () => {
     setOperator(operatorButton.textContent);
-    console.log(operator);
 }
 )});
 
@@ -51,41 +54,51 @@ function operateMultiply(num1, num2){
 function buildNumber(string){
     if(!operator){
         number1 = number1 + string;
+        displayAnswer.textContent = number1
+        displayCalculation.textContent = `${number1} ${operator} ${number2}`;
     } else {
-    number2 = number2 + string
+    number2 = number2 + string;
+    displayAnswer.textContent = number2;
+    displayCalculation.textContent = `${number1} ${operator} ${number2}`;
     };
 };
 
 function setOperator(string){
     if(!operator){
         operator = string;
-    } else {
+        displayCalculation.textContent = `${number1} ${operator} ${number2}`
+    }
+    else{
+        displayCalculation.textContent = `${number1} ${operator} ${number2}`
         operate();
         operator = string;
     }
 };
 
 function clearValues(){
-    number1 = 0;
-    number2 = 0;
+    number1 = '';
+    number2 = '';
+    answer = 0;
     operator = '';
+    displayCalculation.textContent = ``
+    displayAnswer.textContent = answer;
 }
 
 function operate(){
     if (operator === "+"){
        number1 = operateAdd(number1, number2);
-       number2 = 0;
     }
     else if(operator === "-"){
         number1 = operateSubtract(number1, number2);
-        number2 = 0;
     }
     else if(operator === "/"){
        number1 = operateDivide(number1, number2);
-       number2 = 0;
     }
-    else if(operator === "*"){
+    else if(operator === "X"){
         number1 = operateMultiply(number1, number2);
-        number2 = 0;
     }
+    operator = '';
+    number2 = '';
+    answer = number1;
+    displayAnswer.textContent = answer;
 };
