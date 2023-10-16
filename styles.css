@@ -1,36 +1,68 @@
 .calculator{
     width:50vw;
-    height:50vh;
+    height:60vh;
+    max-width: 500px;
     align-self: center;
     display: flex;
     flex-direction: column;
 }
 
 .calculatorDisplay{
+    display: flex;
     flex: auto;
     flex-direction: column;
-    justify-content: flex-end;
-    flex-basis: 10%;
+    justify-content: space-evenly;
+    flex-basis: 20%;
     border:0px;
     margin: 0;
-    background-color: grey;
+    background-color: black;
     text-align: right;
     color: white;
 }
 .displayTop{
     font-size: small;
+    margin-right: 10px;
 }
 .displayBottom{
-    font-size: Larger;
-    align-self: baseline;
+    font-size: 30px;
+    margin-right: 10px;
 }
-.calculatorButtons{
+.calculatorButtons, button{
+    display: flex;
     flex: auto;
-    flex-direction: row;
+    flex-grow: 1;
+    flex-direction: column;
     justify-content: space-evenly;
-    border:0px;
+    align-items: stretch;
+    flex-basis: 80%;
+    background-color: grey;
+    font-size: 24px;
+    color: white;
+}
+
+.row1, .row2, .row3, .row4, .row5{
+    display: flex;
+    flex: 1 1 0;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    align-content: stretch;
+    justify-items: stretch;
     margin: 0;
-    flex-basis: 90%;
-    background-color: pink;
-    border: 10px;
+}
+
+.operatorButton{
+    background-color: orange;
+}
+
+#zeroButton{
+    flex: 0 0 50%;
+    /* flex-grow: 2; */
+}
+
+button{
+    flex: 1 1 0;
+    justify-content: center;
+    padding: 0%;
+    border: 0.25px solid black; 
 }
