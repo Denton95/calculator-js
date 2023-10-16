@@ -1,0 +1,36 @@
+.calculator{
+    width:50vw;
+    height:50vh;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.calculatorDisplay{
+    flex: auto;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex-basis: 10%;
+    border:0px;
+    margin: 0;
+    background-color: grey;
+    text-align: right;
+    color: white;
+}
+.displayTop{
+    font-size: small;
+}
+.displayBottom{
+    font-size: Larger;
+    align-self: baseline;
+}
+.calculatorButtons{
+    flex: auto;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border:0px;
+    margin: 0;
+    flex-basis: 90%;
+    background-color: pink;
+    border: 10px;
+}
